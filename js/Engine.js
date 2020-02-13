@@ -59,12 +59,12 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    const enemiesList = this.enemies;
     const playerX = this.player.x;
     const playerY = this.player.y;
+    const enemiesList = this.enemies;
     let isDead = false;
     enemiesList.forEach(enemy => {
-      if (enemy.x === playerX || enemy.y === playerY) {
+      if (enemy.y === playerY || enemy.x === playerX) {
         isDead = true;
       }
     });

@@ -12,9 +12,6 @@ class Player extends Entity {
     // The y position never changes, so we don't need to store it in a property. It represents the y position of the top of the
     // hamburger. The y position is the distance from the top margin of the browsing area.
     this.y = GAME_HEIGHT - PLAYER_HEIGHT - 10;
-    // We create a DOM node. We will be updating the DOM node every time we move the player, so we store a reference to the
-    // DOM node in a property.
-    // this.domElement = document.createElement("img");
 
     this.render("images/player.png", `${this.x}px`, `${this.y}px`, "10");
 
