@@ -75,6 +75,8 @@ class Engine {
       this.enemies.push(new Enemy(this.root, spot));
     }
     if (PLAYER_SCORE >= 10) {
+      document.querySelector(".win").style.display = "block";
+      document.querySelector("#button-restart").style.display = "block";
       this.bgMusic.pause();
       youWin.play();
       console.log("You Win");
@@ -83,7 +85,7 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      document.querySelector(".win-or-lose").style.display = "block";
+      document.querySelector(".lose").style.display = "block";
       document.querySelector("#button-restart").style.display = "block";
       this.bgMusic.pause();
       youLose.play();

@@ -14,6 +14,7 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
+  z-index: 2;
 }
 
 .mushroom {
@@ -32,7 +33,17 @@
   z-index: 200;
 }
 
-.win-or-lose {
+.lose {
+  position: absolute;
+  left: 138px;
+  top: 50px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+  display: none;
+}
+
+.win {
   position: absolute;
   left: 138px;
   top: 50px;
