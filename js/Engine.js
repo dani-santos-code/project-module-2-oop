@@ -50,7 +50,7 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      window.alert("Game over");
+      console.log("Game over");
       return;
     }
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
@@ -59,15 +59,16 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    const playerX = this.player.x;
-    const playerY = this.player.y;
-    const enemiesList = this.enemies;
-    let isDead = false;
-    enemiesList.forEach(enemy => {
-      if (enemy.y === playerY || enemy.x === playerX) {
-        isDead = true;
-      }
-    });
-    return isDead;
+    // const playerX = this.player.x;
+    // const playerY = this.player.y;
+    // const enemiesList = this.enemies;
+    // let isDead = false;
+    // enemiesList.forEach(enemy => {
+    //   if (enemy.y === playerY || enemy.x === playerX) {
+    //     isDead = true;
+    //   }
+    // });
+    // return isDead;
+    return false;
   };
 }

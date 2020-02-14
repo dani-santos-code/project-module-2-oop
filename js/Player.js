@@ -40,7 +40,9 @@ class Player extends Entity {
   }
   moveDown() {
     if (this.y + PLAYER_HEIGHT < GAME_HEIGHT) {
-      this.y = this.y + PLAYER_HEIGHT;
+      if (this.y < 436) {
+        this.y = this.y + PLAYER_HEIGHT;
+      }
     }
 
     this.domElement.style.top = `${this.y}px`;
