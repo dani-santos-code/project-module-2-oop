@@ -57,4 +57,8 @@ class Enemy extends Entity {
       this.destroyed = true;
     }
   }
+  removeElement() {
+    this.root.removeChild(this.domElement);
+    this.destroyed = true;
+  }
 }

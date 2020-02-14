@@ -14,9 +14,7 @@ class Engine {
     // Initially, we have no enemies in the game. The enemies property refers to an array
     // that contains instances of the Enemy class
     this.enemies = [];
-
     this.mushrooms = [];
-
     this.bgMusic = new Audio(
       "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
     );
@@ -39,7 +37,7 @@ class Engine {
 
   moveMushrooms = () => {
     for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
-      this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 5;
+      this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 10;
     }
   };
 
@@ -49,6 +47,7 @@ class Engine {
   //  - Removes enemies that are too low from the enemies array
   gameLoop = () => {
     this.moveMushrooms();
+    this.isEnemyDead();
     const youLose = new Audio(
       "http://www.orangefreesounds.com/wp-content/uploads/2017/07/You-lose-sound-effect.mp3"
     );
@@ -76,6 +75,7 @@ class Engine {
       const spot = nextEnemySpot(this.enemies);
       this.enemies.push(new Enemy(this.root, spot));
     }
+
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
@@ -84,8 +84,9 @@ class Engine {
       console.log("Game over");
       return;
     }
+
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
-    setTimeout(this.gameLoop, 20);
+    setTimeout(this.gameLoop, 40);
   };
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
@@ -104,6 +105,26 @@ class Engine {
         isDead = true;
       }
     });
+    return isDead;
+  };
+  isEnemyDead = () => {
+    let isDead = false;
+    for (let enemy = 0; enemy < this.enemies.length; enemy++) {
+      for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
+        if (
+          this.mushrooms[mushroom].left < this.enemies[enemy].x + 75 &&
+          this.mushrooms[mushroom].left + 32 > this.enemies[enemy].x &&
+          this.mushrooms[mushroom].top < this.enemies[enemy].y + 54 &&
+          this.mushrooms[mushroom].top + 32 > this.enemies[enemy].y
+        ) {
+          {
+            this.enemies[enemy].removeElement();
+            document.getElementById("mushroom").innerHTML = "";
+            PLAYER_SCORE += 1;
+          }
+        }
+      }
+    }
     return isDead;
   };
 }
