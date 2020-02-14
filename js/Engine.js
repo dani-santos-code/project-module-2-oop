@@ -40,12 +40,6 @@ class Engine {
       this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 10;
     }
   };
-
-  // The gameLoop will run every few milliseconds. It does several things
-  //  - Updates the enemy positions
-  //  - Detects a collision between the player and any enemy
-  //  - Removes enemies that are too low from the enemies array
-
   gameLoop = () => {
     document.cookie = "Set-Cookie: key=value; HttpOnly; SameSite=None; Secure";
     this.isEnemyDead();
@@ -89,6 +83,8 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
+      document.querySelector(".win-or-lose").style.display = "block";
+      document.querySelector("#button-restart").style.display = "block";
       this.bgMusic.pause();
       youLose.play();
       console.log("You Lose");

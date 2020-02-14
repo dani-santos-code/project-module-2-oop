@@ -7,7 +7,7 @@
   border: none;
   position: absolute;
   top: 180px;
-  left: 90px;
+  left: 100px;
   height: 60px;
   width: 200px;
   color: white;
@@ -30,4 +30,17 @@
   color: white;
   font: bold 30px Impact;
   z-index: 200;
+}
+
+.win-or-lose {
+  position: absolute;
+  left: 138px;
+  top: 50px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+  display: none;
+}
+#button-restart {
+  display: none;
 }
