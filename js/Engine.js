@@ -80,7 +80,7 @@ class Engine {
       const spot = nextEnemySpot(this.enemies);
       this.enemies.push(new Enemy(this.root, spot));
     }
-    if (PLAYER_SCORE > 10) {
+    if (PLAYER_SCORE >= 10) {
       this.bgMusic.pause();
       youWin.play();
       console.log("You Win");
@@ -131,6 +131,7 @@ class Engine {
             this.enemies[enemy].removeElement();
             document.getElementById("mushroom").innerHTML = "";
             PLAYER_SCORE += 1;
+            document.querySelector(".score").innerText = `${PLAYER_SCORE}`;
           }
         }
       }

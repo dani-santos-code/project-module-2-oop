@@ -22,3 +22,12 @@
   width: 32px;
   position: absolute;
 }
+
+.score {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+}
