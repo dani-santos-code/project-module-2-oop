@@ -45,11 +45,16 @@ class Engine {
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
   //  - Removes enemies that are too low from the enemies array
+
   gameLoop = () => {
-    this.moveMushrooms();
+    document.cookie = "Set-Cookie: key=value; HttpOnly; SameSite=None; Secure";
     this.isEnemyDead();
+    this.moveMushrooms();
     const youLose = new Audio(
       "http://www.orangefreesounds.com/wp-content/uploads/2017/07/You-lose-sound-effect.mp3"
+    );
+    const youWin = new Audio(
+      "https://d1490khl9dq1ow.cloudfront.net/audio/sfx/mp3preview/BsTwCwBHBjzwub4i4/incredible-joy-small-group_fyzpQrVd_NWM.mp3"
     );
     // This code is to see how much time, in milliseconds, has elapsed since the last
     // time this method was called.
@@ -75,13 +80,18 @@ class Engine {
       const spot = nextEnemySpot(this.enemies);
       this.enemies.push(new Enemy(this.root, spot));
     }
-
+    if (PLAYER_SCORE > 10) {
+      this.bgMusic.pause();
+      youWin.play();
+      console.log("You Win");
+      return;
+    }
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
       this.bgMusic.pause();
       youLose.play();
-      console.log("Game over");
+      console.log("You Lose");
       return;
     }
 
