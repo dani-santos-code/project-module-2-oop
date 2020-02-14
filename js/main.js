@@ -29,7 +29,3 @@ const keydownHandler = event => {
 document.addEventListener("keydown", keydownHandler);
 // We call the gameLoop method to start the game
 gameEngine.gameLoop();
-
-// if (!gameEngine.isPlayerDead()) {
-//   gameEngine.gameLoop();
-// }

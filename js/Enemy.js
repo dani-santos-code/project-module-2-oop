@@ -36,7 +36,7 @@ class Enemy extends Entity {
     // We modify the CSS style of the DOM node.
     // Show that the user can actually see the img DOM node, we append it to the root DOM node.
     theRoot.appendChild(this.domElement);
-    this.speed = Math.random() / 2 + 0.25;
+    this.speed = Math.random() / 10 + 0.25;
   }
 
   // We set the speed property of the enemy. This determines how fast it moves down the screen.
