@@ -15,8 +15,11 @@ class Engine {
     // that contains instances of the Enemy class
     this.enemies = [];
 
+    this.bgMusic = new Audio(
+      "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
+    );
     // We add the background image to the game
-    addBackground(this.root, this.bgMusic);
+    addBackground(this.root);
   }
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
@@ -53,7 +56,7 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      // backgroundMusic.pause();
+      this.bgMusic.pause();
       youLose.play();
       console.log("Game over");
       return;

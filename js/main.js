@@ -1,6 +1,7 @@
 // We create an instance of the Engine class. Looking at our index.html,
 // we see that it has a div with an id of \`"app"\`
 const gameEngine = new Engine(document.getElementById("app"));
+const btn = document.getElementById("button-start");
 // keydownHandler is a variable that refers to a function. The function has one parameter
 // (does the parameter name matter?) which is called event. As we will see below, this function
 // will be called every time the user presses a key. The argument of the function call will be an object.
@@ -25,12 +26,19 @@ const keydownHandler = event => {
     gameEngine.player.moveDown();
   }
 };
+
+const handleStartClick = () => {
+  btn.style.display = "none";
+  gameEngine.bgMusic.play();
+  gameEngine.gameLoop();
+};
 // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
 document.addEventListener("keydown", keydownHandler);
-// We call the gameLoop method to start the game
-gameEngine.gameLoop();
 
-// TODO: n click (start) music begins / user event
+btn.addEventListener("click", handleStartClick);
+// We call the gameLoop method to start the game
+
+// TODO: on click (start) music begins / user event
 //   this.bgMusic = new Audio(
 //  "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
 //  );
