@@ -29,3 +29,8 @@ const keydownHandler = event => {
 document.addEventListener("keydown", keydownHandler);
 // We call the gameLoop method to start the game
 gameEngine.gameLoop();
+
+// TODO: n click (start) music begins / user event
+//   this.bgMusic = new Audio(
+//  "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
+//  );

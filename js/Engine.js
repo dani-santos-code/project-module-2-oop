@@ -14,15 +14,18 @@ class Engine {
     // Initially, we have no enemies in the game. The enemies property refers to an array
     // that contains instances of the Enemy class
     this.enemies = [];
-    // We add the background image to the game
-    addBackground(this.root);
-  }
 
+    // We add the background image to the game
+    addBackground(this.root, this.bgMusic);
+  }
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
   //  - Removes enemies that are too low from the enemies array
   gameLoop = () => {
+    const youLose = new Audio(
+      "http://www.orangefreesounds.com/wp-content/uploads/2017/07/You-lose-sound-effect.mp3"
+    );
     // This code is to see how much time, in milliseconds, has elapsed since the last
     // time this method was called.
     // (new Date).getTime() evaluates to the number of milliseconds since January 1st, 1970 at midnight.
@@ -50,6 +53,8 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
+      // backgroundMusic.pause();
+      youLose.play();
       console.log("Game over");
       return;
     }
