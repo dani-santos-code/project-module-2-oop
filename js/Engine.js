@@ -64,10 +64,20 @@ class Engine {
     const enemiesList = this.enemies;
     let isDead = false;
     enemiesList.forEach(enemy => {
-      if (enemy.y + 56 >= playerY && enemy.x - 54 <= playerX) {
+      if (
+        enemy.x < playerX + 75 &&
+        enemy.x + 75 > playerX &&
+        enemy.y < playerY + 54 &&
+        enemy.y + 156 > playerY
+      ) {
         isDead = true;
       }
     });
     return isDead;
   };
 }
+
+rect1.x < rect2.x + rect2.width &&
+  rect1.x + rect1.width > rect2.x &&
+  rect1.y < rect2.y + rect2.height &&
+  rect1.y + rect1.height > rect2.y;
