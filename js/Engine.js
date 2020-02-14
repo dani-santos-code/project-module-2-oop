@@ -15,17 +15,40 @@ class Engine {
     // that contains instances of the Enemy class
     this.enemies = [];
 
+    this.mushrooms = [];
+
     this.bgMusic = new Audio(
       "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
     );
     // We add the background image to the game
     addBackground(this.root);
   }
+
+  generateMushrooms = () => {
+    this.mushrooms.push({
+      left: this.player.x + 13,
+      top: this.player.y - 40
+    });
+    document.getElementById("mushroom").innerHTML = "";
+    for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
+      document.getElementById(
+        "mushroom"
+      ).innerHTML += `<div class='mushroom' style='left:${this.mushrooms[mushroom].left}px; top:${this.mushrooms[mushroom].top}px;'></div>`;
+    }
+  };
+
+  moveMushrooms = () => {
+    for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
+      this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 5;
+    }
+  };
+
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
   //  - Removes enemies that are too low from the enemies array
   gameLoop = () => {
+    this.moveMushrooms();
     const youLose = new Audio(
       "http://www.orangefreesounds.com/wp-content/uploads/2017/07/You-lose-sound-effect.mp3"
     );

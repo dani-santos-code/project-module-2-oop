@@ -25,6 +25,9 @@ const keydownHandler = event => {
     event.preventDefault();
     gameEngine.player.moveDown();
   }
+  if (event.keyCode === 32) {
+    gameEngine.generateMushrooms();
+  }
 };
 
 const handleStartClick = () => {
@@ -37,8 +40,3 @@ document.addEventListener("keydown", keydownHandler);
 
 btn.addEventListener("click", handleStartClick);
 // We call the gameLoop method to start the game
-
-// TODO: on click (start) music begins / user event
-//   this.bgMusic = new Audio(
-//  "http://www.orangefreesounds.com/wp-content/uploads/2020/02/Breakbeat-downtempo-electronic-loop.mp3?_=1"
-//  );
