@@ -16,28 +16,6 @@ class Engine {
     addBackground(this.root);
   }
 
-  // resetGame = () => {
-  //   this.youLose.pause();
-  //   this.youWin.pause();
-  //   this.bgMusic.pause();
-  //   this.player = new Player(this.root);
-  //   this.enemies = [];
-  //   this.mushrooms = [];
-  //   PLAYER_SCORE = 0;
-  //   document.querySelector(".score").innerText = "";
-  //   document.querySelector(".lose").innerText = "";
-  //   document.querySelector(".win").innerText = "";
-  //   document.getElementById("mushroom").innerHTML = "";
-  //   document.getElementById("button-restart").style.display = "none";
-  //   document.getElementById("button-start").style.display = "block";
-
-  //   const images = document.getElementsByTagName("img");
-  //   for (let i = 0; i <= images.length; i++) {
-  //     this.root.removeChild(images[i]);
-  //   }
-  //   addBackground(this.root);
-  // };
-
   generateMushrooms = () => {
     this.mushrooms.push({
       left: this.player.x + 13,
@@ -56,6 +34,7 @@ class Engine {
       this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 10;
     }
   };
+
   gameLoop = () => {
     this.isEnemyDead();
     this.moveMushrooms();
@@ -112,6 +91,7 @@ class Engine {
     });
     return isDead;
   };
+
   isEnemyDead = () => {
     let isDead = false;
     for (let enemy = 0; enemy < this.enemies.length; enemy++) {

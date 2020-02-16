@@ -3,9 +3,7 @@ class Player extends Entity {
     super();
     this.x = 2 * PLAYER_WIDTH;
     this.y = GAME_HEIGHT - PLAYER_HEIGHT - 10;
-
     this.render("images/player.png", `${this.x}px`, `${this.y}px`, "10");
-
     root.appendChild(this.domElement);
   }
   moveLeft() {
