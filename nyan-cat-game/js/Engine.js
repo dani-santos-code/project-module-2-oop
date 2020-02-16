@@ -22,6 +22,7 @@ class Engine {
       top: this.player.y - 40
     });
     const mushroomDiv = document.getElementById("mushroom");
+
     mushroomDiv.innerHTML = "";
     this.mushrooms.forEach(mushroom => {
       mushroomDiv.innerHTML += `<div class='mushroom' style='left:${mushroom.left}px; top:${mushroom.top}px;'></div>`;
@@ -29,8 +30,12 @@ class Engine {
   };
 
   moveMushrooms = () => {
+    const mushroomDiv = document.getElementById("mushroom");
+
+    mushroomDiv.innerHTML = "";
     this.mushrooms.forEach(mushroom => {
       mushroom.top = mushroom.top - 5;
+      mushroomDiv.innerHTML += `<div class='mushroom' style='left:${mushroom.left}px; top:${mushroom.top}px;'></div>`;
     });
   };
 
@@ -105,6 +110,7 @@ class Engine {
             this.enemies[enemy].removeElement();
             document.getElementById("mushroom").innerHTML = "";
             this.mushrooms.splice(this.mushrooms[mushroom], 1);
+            // console.log(this.mushrooms[mushroom]);
             PLAYER_SCORE += 1;
             document.querySelector(".score").innerText = `${PLAYER_SCORE}`;
           }
