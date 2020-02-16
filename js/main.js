@@ -24,13 +24,10 @@ const keydownHandler = event => {
 };
 
 const handleStartClick = () => {
-  if (handleRestart) {
-    gameEngine.bgMusic.play();
-    gameEngine.gameLoop();
-  }
   document.addEventListener("keydown", keydownHandler);
   event.preventDefault();
   btn.style.display = "none";
+  document.querySelector(".instructions").style.display = "none";
   gameEngine.bgMusic.play();
   gameEngine.gameLoop();
 };

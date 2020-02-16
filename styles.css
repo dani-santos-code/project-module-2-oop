@@ -16,7 +16,9 @@
   border-radius: 5px;
   z-index: 200;
 }
-
+#button-start {
+  top: 240px;
+}
 .mushroom {
   background-image: url("./images/mushrum.png");
   height: 32px;
@@ -54,4 +56,22 @@
 }
 #button-restart {
   display: none;
+}
+
+.instructions {
+  font-weight: bold;
+  background: #383d67c9;
+  border: none;
+  position: absolute;
+  top: 60px;
+  width: 375px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  z-index: 200;
+}
+
+.instructions p {
+  padding: 5px;
 }
