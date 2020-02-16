@@ -21,18 +21,17 @@ class Engine {
       left: this.player.x + 13,
       top: this.player.y - 40
     });
-    document.getElementById("mushroom").innerHTML = "";
-    for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
-      document.getElementById(
-        "mushroom"
-      ).innerHTML += `<div class='mushroom' style='left:${this.mushrooms[mushroom].left}px; top:${this.mushrooms[mushroom].top}px;'></div>`;
-    }
+    const mushroomDiv = document.getElementById("mushroom");
+    mushroomDiv.innerHTML = "";
+    this.mushrooms.forEach(mushroom => {
+      mushroomDiv.innerHTML += `<div class='mushroom' style='left:${mushroom.left}px; top:${mushroom.top}px;'></div>`;
+    });
   };
 
   moveMushrooms = () => {
-    for (let mushroom = 0; mushroom < this.mushrooms.length; mushroom++) {
-      this.mushrooms[mushroom].top = this.mushrooms[mushroom].top - 10;
-    }
+    this.mushrooms.forEach(mushroom => {
+      mushroom.top = mushroom.top - 5;
+    });
   };
 
   gameLoop = () => {
@@ -105,6 +104,7 @@ class Engine {
           {
             this.enemies[enemy].removeElement();
             document.getElementById("mushroom").innerHTML = "";
+            this.mushrooms.splice(this.mushrooms[mushroom], 1);
             PLAYER_SCORE += 1;
             document.querySelector(".score").innerText = `${PLAYER_SCORE}`;
           }
