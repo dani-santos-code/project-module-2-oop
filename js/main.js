@@ -18,23 +18,28 @@ const keydownHandler = event => {
     gameEngine.player.moveDown();
   }
   if (event.keyCode === 32) {
+    event.preventDefault();
     gameEngine.generateMushrooms();
   }
 };
 
 const handleStartClick = () => {
+  if (handleRestart) {
+    gameEngine.bgMusic.play();
+    gameEngine.gameLoop();
+  }
   document.addEventListener("keydown", keydownHandler);
+  event.preventDefault();
   btn.style.display = "none";
   gameEngine.bgMusic.play();
   gameEngine.gameLoop();
 };
 
 const handleRestart = () => {
+  document.removeEventListener("keydown", keydownHandler);
   location.reload();
+  gameEngine.gameLoop();
 };
-// We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
 
 btn.addEventListener("click", handleStartClick);
-// We call the gameLoop method to start the game
-
 btnRestart.addEventListener("click", handleRestart);
