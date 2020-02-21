@@ -1,0 +1,77 @@
+.button {
+  margin-top: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  padding: 0 40px;
+  background: #383d67c9;
+  border: none;
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  height: 60px;
+  width: 200px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 200;
+}
+#button-start {
+  top: 240px;
+}
+.mushroom {
+  background-image: url("./images/mushrum.png");
+  height: 32px;
+  width: 32px;
+  position: absolute;
+}
+
+.score {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+}
+
+.lose {
+  position: absolute;
+  left: 138px;
+  top: 50px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+  display: none;
+}
+
+.win {
+  position: absolute;
+  left: 138px;
+  top: 50px;
+  color: white;
+  font: bold 30px Impact;
+  z-index: 200;
+  display: none;
+}
+#button-restart {
+  display: none;
+}
+
+.instructions {
+  font-weight: bold;
+  background: #383d67c9;
+  border: none;
+  position: absolute;
+  top: 60px;
+  width: 375px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  z-index: 200;
+}
+
+.instructions p {
+  padding: 5px;
+}
